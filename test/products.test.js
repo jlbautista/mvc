@@ -4,6 +4,12 @@ const Product = require('../models/products');
 
 // Create a new product
 describe('Products - create new Product', () => {
+    // Clear the database before running the test
+    beforeAll(async () => {
+        await Product.destroy({ where: {} });
+    });
+
+    // Test the creation of a new product
     it('should create a new product', async () => {
         const product = await request(app)
             .post('/api/products')
@@ -12,8 +18,6 @@ describe('Products - create new Product', () => {
                 price: 100,
                 stock: 10
             });
-
-        console.log(product);
 
         expect(product.status).toEqual(201);
         expect(product.body).toHaveProperty('success', true);
