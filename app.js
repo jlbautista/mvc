@@ -9,10 +9,12 @@ app.use(express.json());
 
 // Routes
 const usersRoutes = require("./routes/usersRoutes");
+const productsRoutes = require("./routes/productsRoutes");
 const purchasesRoutes = require("./routes/purchasesRoutes");
 
 app.use("/api/users", usersRoutes);
-app.use("/api/purchases", purchasesRoutes);
+app.use("/api/products", productsRoutes);
+app.use("/api/purchase", purchasesRoutes);
 
 // Error handler middleware
 app.use((err, req, res, next) => {
