@@ -1,6 +1,10 @@
 const PORT = process.env.PORT || 3001;
 const app = require('./app');
 const db = require('./config/db');
+const swaggerDocs = require('./config/swagger');
+
+// Swagger Docs
+swaggerDocs(app, PORT);
 
 // Connect to DB
 db.sync()
