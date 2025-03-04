@@ -6,6 +6,7 @@ const sequelize = new Sequelize(
     process.env.DB_USERNAME, 
     process.env.DB_PASSWORD, 
     {
+        logging: process.env.NODE_ENV === 'development' ? console.log : false,
         host: process.env.DB_HOST,
         dialect: 'mysql',
         pool: {
@@ -13,7 +14,8 @@ const sequelize = new Sequelize(
             min: 0,
             acquire: 30000,
             idle: 10000
+        }
     }
-});
+);
 
 module.exports = sequelize;
