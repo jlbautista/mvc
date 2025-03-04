@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
 };
 
 // Get all users
-exports.findAll = async (req, res) => {
+exports.getUsers = async (req, res) => {
     try {
         const users = await User.findAll();
         res.status(200).json({ success: true, data: users });
@@ -22,7 +22,7 @@ exports.findAll = async (req, res) => {
 };
 
 // Get a user by id
-exports.findOne = async (req, res) => {
+exports.getUser = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
