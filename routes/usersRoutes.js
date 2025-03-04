@@ -22,12 +22,12 @@ const usersController = require('../controllers/usersController');
  *            email:  
  *              type: string
  *     responses:
- *       200:
- *         description: The user was successfully created
- *         content:
- *           application/json:
- *             schema:
- *               type: array
+ *       201:
+ *        description: The user was successfully created
+ *        content:
+ *          application/json:
+ *              schema:
+ *              type: array
  *       500:
  *          description: Some server error
  *       400:
